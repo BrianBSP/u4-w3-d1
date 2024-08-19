@@ -1,0 +1,31 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 SELECT * FROM clienti WHERE 	nome = 'Mario\'92;\
+\
+SELECT nome, congnome FROM clienti WHERE anno_nascita = 1982;\
+\
+SELECT COUNT(numero_fatture) FROM fatture WHERE iva = 20;\
+\
+SELECT * FROM prodotti WHERE EXTRACT(YEAR FROM data_attivazione)=2017 \
+AND(in_produzione = 2017 OR in_commercio = 2017);  \'97> non credo funzioni\
+\
+SELECT * FROM fatture\
+JOIN clienti ON id_cliente = numero_cliente\
+WHERE importo < 3000;\
+\
+SELECT fatt.numero_fatture, fatt.importo, fatt.iva, fatt.data_fattura FROM fatture fatt\
+JOIN fornitori forn ON fatt.numero_fornitore = forn.numero_fornitore\
+\
+SELECT EXTRACT(YEAR FROM data_fattura) AS anno, COUNT(numero_fatture) AS numero_fatture\
+FROM fatture\
+WHERE iva = 20\
+GROUP BY EXTRACT(YEAR FROM data_fattura);\
+\
+SELECT EXTRACT(YEAR FROM data_fattura) AS anno, COUNT(numero_fatture) AS numero_fatture, SUM(importo) AS tot_importo\
+FROM fatture\
+GROUP BY EXTRACT (YEAR FROM data_fattura)}
